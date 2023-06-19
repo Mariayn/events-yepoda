@@ -1,0 +1,18 @@
+<?php $__env->startSection('title', 'Inicio'); ?>
+<?php $__env->startSection('content'); ?>
+<h1> <?php echo $pepe; ?> </h1>
+<?php
+ if($pepe=="hola"){
+   echo "si";
+ }
+ ?>
+ <?php if($pepe=="hola"): ?>
+ <?php echo $pepe; ?>
+
+ <?php endif; ?>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer'); ?>
+<?php echo $__env->make('layouts.public_templates.footer', compact("fecha_format"), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.public_templates.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

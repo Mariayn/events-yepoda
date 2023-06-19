@@ -1,0 +1,24 @@
+<div style="padding-left: 9%; padding-right: 9%; padding-bottom: 36px; background-color: #f1f1f1;">
+<div class="row justify-content-center" id="flextitle">
+    <h2 style="width: unset; padding-top: 17px;margin-top: 9px;"><?php echo Flight::trad("RegBanTitle"); ?></h2>
+    <hr id="titlehr"> </hr>
+</div>
+
+<div id="divregbban">
+
+
+<label id="regbanl1">
+<img id="regbanimg" src="<?php echo PATH_LOCALHOST; ?>assets/images/main/banreg.png" alt="...">
+</label>
+
+<label id="regbanl2">
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok"><?php echo Flight::trad("RegBan1"); ?></h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok"><?php echo Flight::trad("RegBan2"); ?></h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok"><?php echo Flight::trad("RegBan3"); ?></h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok"><?php echo Flight::trad("RegBan4"); ?></h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok"><?php echo Flight::trad("RegBan5"); ?></h4>
+    <button id="buttonreg2" class="btn btn-secondary"> <a href="<?php echo PATH_LOCALHOST; ?>regis" style="color: #ffffff;text-decoration: none;"> <?php echo Flight::trad("RegBanButton"); ?></a></button>
+<label>
+
+</div>
+</div>

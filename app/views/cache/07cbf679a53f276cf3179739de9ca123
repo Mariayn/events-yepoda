@@ -1,0 +1,48 @@
+<?php $__env->startSection('title', 'Registro de Usuario'); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container" style="text-align:center; margin-top:100px">
+
+
+<h1>REGISTRATE EN QUEDO.ES</h1>
+
+
+
+    <form method="post" action="<?php echo PATH_LOCALHOST; ?>registest" style="text-align: -webkit-center">
+
+    <?php
+        if(isset($_GET["regstatus"])){
+            $status=$_GET["regstatus"];
+                ?>
+                <div class="alert alert-danger" style="max-width:600px;" role="alert">
+                        <?php echo $status ?> - Registro Incompleto
+                </div>
+                <?php
+        }
+    ?>
+
+    <div class="input-group mb-3" style="max-width:600px;">
+        <span class="input-group-text" id="basic-addon1">U</span>
+        <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="username" aria-describedby="basic-addon1" required>
+    </div>
+
+    <div class="input-group mb-3" style="max-width:600px;">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input type="text" class="form-control" placeholder="Mail" aria-label="Mail" name="mail" aria-describedby="basic-addon1">
+    </div>
+
+
+    <div class="input-group mb-3" style="max-width:600px;">
+        <span class="input-group-text" id="basic-addon1">X</span>
+        <input type="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña" name="password" aria-describedby="basic-addon1" required>
+    </div>
+
+        <button type="submit" class="btn btn-success">Registrarse</button>
+    </form>
+
+
+</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.primary_template.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

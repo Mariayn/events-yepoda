@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <title><?php echo $__env->yieldContent('title', 'munigestion'); ?> | munigestion</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">  
+  <link rel="icon" type="image/png" href="<?php echo PATH_LOCALHOST; ?>assets/images/Favicon.ico">
+  <link rel="stylesheet" href="<?php echo PATH_LOCALHOST; ?>packages/semantic-ui/semantic.min.css">  
+  <script src="<?php echo PATH_LOCALHOST; ?>packages/jquery/jquery-2.1.4.min.js"></script>
+  <script src="<?php echo PATH_LOCALHOST; ?>packages/semantic-ui/semantic.min.js"></script>
+  <link rel="stylesheet" href="<?php echo PATH_LOCALHOST; ?>assets/css/dashboard.css?<?php echo date('YmdHis'); ?>">   
+
+
+  <?php echo $__env->yieldContent('css'); ?>
+  <?php echo $__env->yieldContent('scripts'); ?>
+
+  <script type="text/javascript">var PATH_LOCALHOST= "<?= PATH_LOCALHOST ?>";</script> 
+</head>
+<body>
+
+
+
+  <div class="page">
+
+
+    <div class="app-main-wrapper pusher">
+      <?php echo $__env->make('layouts.templates.header', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?> 
+
+      <div class="container">
+        <?php echo $__env->yieldContent('content'); ?>
+      </div> 
+    </div> 
+    <?php echo $__env->yieldContent('footer'); ?> 
+  </div>
+
+
+
+
+
+
+
+
+  <script>
+
+    $(document).ready(function(){ 
+
+      $('.ui.dropdown').dropdown();
+
+    });
+
+
+
+    </script>
+  </body>
+  </html>

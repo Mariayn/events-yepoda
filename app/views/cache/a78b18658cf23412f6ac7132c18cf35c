@@ -1,0 +1,16 @@
+<?php $__env->startSection('title', 'Registro'); ?>
+<?php $__env->startSection('content'); ?>
+<?php echo $__env->make('layouts.redux.regisform', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('marcontent'); ?>
+
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footers'); ?>
+<script src="<?php echo PATH_LOCALHOST; ?>assets/js/regformcit.js?<?php echo date('YmdHis'); ?>"></script>
+<?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.redux.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

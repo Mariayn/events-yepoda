@@ -1,0 +1,222 @@
+
+
+<div class="container-fluid fixed"id="ground2" >
+           
+    <div class="container" id="bg_log">
+        <div class="row d-flex justify-content-center" style="margin-top: 5rem;">
+            <div class="col-md-12" style="text-align: center;">
+                <div class="slider-title_box">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10" id="formreg4">
+                           
+                        <form method="post" action="<?php echo PATH_LOCALHOST; ?>regUserA" class="form" id="formRegis" onsubmit="event.preventDefault()">
+      
+    
+      <div class="progressbar">
+        <div class="progress" id="progress"></div>
+        
+        <div
+          class="progress-step progress-step-active"
+          data-title="<?php echo Flight::trad('RegFormHeadTitle1'); ?>"
+        ></div>
+        <div class="progress-step" data-title="<?php echo Flight::trad('RegFormHeadTitle2'); ?>"></div>
+        <div class="progress-step" data-title="<?php echo Flight::trad('RegFormHeadTitle3'); ?>"></div>
+        <div class="progress-step" data-title="<?php echo Flight::trad('RegFormHeadTitle4'); ?>"></div>
+        <div class="progress-step" data-title="<?php echo Flight::trad('RegFormHeadTitle5'); ?>"></div>
+      </div>
+      <div class="step-forms step-forms-active">
+        <h3 style="margin-bottom:20px;margin-top:10px;"> <?php echo Flight::trad("RegFormQuest1"); ?> </h2>
+        <input class="form-check-input" type="radio" value="null" name="tipo" id="nulltypex" hidden checked>
+            <div class="form-check" id="checkboxdiv">
+              <input class="form-check-input" type="radio" value="ci" name="tipo" id="tipo" style="margin-left: 1%;">
+                <label class="form-check-label" for="flexRadioDefault1" style="margin-left: 5%;">
+                <img src="<?php echo PATH_LOCALHOST; ?>assets/images/log/citicen.png" class="image" style="height: 70px">
+                <?php echo Flight::trad("AccountTypeCh1"); ?>
+
+                </label>
+            </div>
+            <div class="form-check" id="checkboxdiv">
+              <input class="form-check-input" type="radio" value="em" name="tipo" id="tipo2" style="margin-left: 1%;" >
+               <label class="form-check-label" for="flexRadioDefault2" style="margin-left: 5%;">
+               <img src="<?php echo PATH_LOCALHOST; ?>assets/images/log/entity.png" class="image" style="height: 70px">
+               <?php echo Flight::trad("AccountTypeCh2"); ?>
+
+
+              </label>
+            </div>
+            <p id="tipoe"style="color:red; font-weight:bold"></p>
+        <div class="">
+          <a href="#" class="btn btn-next width-50 ml-auto"><?php echo Flight::trad("Global_Next"); ?> ></a>
+        </div>
+      </div>
+      <div class="step-forms">
+      <div class="group-inputs">
+          <label for="username"><?php echo Flight::trad("Global_Username"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <input type="text" name="username" id="username" required/>
+          <p id="usernamee"style="color:red; font-weight:bold"></p>
+      </div>
+        <div class="group-inputs">
+          <label for="email"><?php echo Flight::trad("Global_email"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <input type="email" name="email" id="email" required/>
+          <p id="emaile"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs">
+          <label for="pass"> <?php echo Flight::trad("Global_password"); ?><strong style="color:#ff0f39">*</strong></label>
+          <input type="password" name="pass" id="pass" required/>
+          <p id="passe"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs">
+          <label for="pass2"><?php echo Flight::trad("RegCheckConfPass"); ?><strong style="color:#ff0f39">*</strong></label>
+          <input type="password" name="pass2" id="pass2" required/>
+          <p id="pass2e"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="entitygroup" >
+          <label for="sname"><?php echo Flight::trad("Global_ShortName"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <input type="text" name="sname" id="sname" required/>
+          <p id="snamee"style="color:red; font-weight:bold"></p>
+      </div>
+        <div class="group-inputs">
+          <label for="telf"><?php echo Flight::trad("Global_Telf"); ?> <strong id="entityvisible" style="color:#ff0f39">*</strong></label>
+          <input type="text" name="telf" id="telf" required/>
+          <p id="telfe"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">< <?php echo Flight::trad("Volver"); ?></a>
+          <a href="#" class="btn btn-next"><?php echo Flight::trad("Global_Next"); ?> ></a>
+        </div>
+      </div>
+      <div class="step-forms">
+      <div class="group-inputs"  id="entitygroup" >
+          <label for="class" ><?php echo Flight::trad("RegFormClass"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <select class="form-select" id="class" name="class"size="2" aria-label="size 2">
+            <option value="Negocio"><?php echo Flight::trad("Global_Negocio"); ?></option>
+            <option value="Asociación"><?php echo Flight::trad("Global_Asociacion"); ?></option>
+          </select>
+          <p id="classe"style="color:red; font-weight:bold"></p>
+        </div>
+      <div class="group-inputs"  id="entitygroup" >
+          <label for="dens"><?php echo Flight::trad("RegFormSocialDeno"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <input type="text" name="dens" id="dens" required/>
+          <p id="dense"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="citicengroup" >
+          <label for="name"><?php echo Flight::trad("Nombre"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <input type="text" name="name" id="name" required/>
+          <p id="namee"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="citicengroup" >
+          <label for="fapel"><?php echo Flight::trad("Global_Apellido1"); ?></label>
+          <input type="text" name="fapel" id="fapel" required />
+          <p id="fapele"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="citicengroup" >
+          <label for="sapel"><?php echo Flight::trad("Global_Apellido2"); ?></label>
+          <input type="text" name="sapel" id="sapel"/>
+          <p id="sapele"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="citicengroup" >
+          <label for="ident"><?php echo Flight::trad("Global_DNIE"); ?> </label>
+          <input type="text" name="ident" id="ident" required/>
+          <p id="idente"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="entitygroup" >
+          <label for="cif"><?php echo Flight::trad("CIF"); ?><strong style="color:#ff0f39">*</strong></label>
+          <input type="text" name="cif" id="cif" required/>
+          <p id="cife"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs"  id="citicengroup" >
+          <label for="fnac"><?php echo Flight::trad("Global_Fnac"); ?> </label>
+          <input type="date" name="fnac" id="fnac" required/>
+          <p id="fnace"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs" id="entitygroup" >
+          <label for="web"><?php echo Flight::trad("Global_Web"); ?></label>
+          <input type="text" name="web" id="web" required/>
+          <p id="webe"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">< <?php echo Flight::trad("Global_Back"); ?></a>
+          <a href="#" class="btn btn-next"><?php echo Flight::trad("Global_Next"); ?> ></a>
+        </div>
+      </div>
+      <div class="step-forms">
+        <div class="group-inputs">
+          <label for="vtype"><?php echo Flight::trad("RegFormTipovia"); ?> <strong id="entityvisible" style="color:#ff0f39">*</strong> </label>
+          <input type="text" name="vtype" id="vtype" required/>
+          <p id="vtypee"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs">
+          <label for="direc"><?php echo Flight::trad("Global_Dir"); ?> <strong id="entityvisible" style="color:#ff0f39">*</strong></label>
+          <input type="text" name="direc" id="direc" required/>
+          <p id="direce"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs">
+          <label for="poscod"><?php echo Flight::trad("Global_CP"); ?> <strong id="entityvisible" style="color:#ff0f39">*</strong></label>
+          <input type="text" name="poscod" id="poscod" required/>
+          <p id="poscode"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs">
+          <label for="prov"><?php echo Flight::trad("Global_Prov"); ?> <strong style="color:#ff0f39">*</strong></label>
+          <select id="prov" class="form-select form-select-sm" name="prov" required>
+          <option></option>
+          <?php
+              $array_count = count($Provincias);
+              for ($i = 0; $i < $array_count; ++$i){?>
+          <option value="<?php echo $Provincias[$i]['cod_prov']; ?>"><?php echo $Provincias[$i]['label']; ?></option>
+          <?php } ?>
+          </select>
+          <p id="prove"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="group-inputs">
+          <label for="mun"><?php echo Flight::trad("Global_Mun"); ?> <strong id="entityvisible" style="color:#ff0f39">*</strong> </label>
+          <select id="mun" class="form-select form-select-sm" name="mun" required>          </select>
+          <p id="mune"style="color:red; font-weight:bold"></p>
+        </div>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">< <?php echo Flight::trad("Global_Back"); ?></a>
+          <a href="#" class="btn btn-next"><?php echo Flight::trad("Global_Next"); ?> ></a>
+        </div>
+      </div>
+      <div class="step-forms">
+      <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1"onclick='MainCheckBox()'name="MainCheck" id="MainCheck">
+  <label class="form-check-label" for="flexCheckDefault">
+  #<?php echo Flight::trad("RegFormCond1"); ?><strong style="color:#ff0f39">*</strong>
+  </label>
+</div>
+        <hr>
+        <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" disabled="true" name="Check1" id="Check1">
+  <label class="form-check-label" for="flexCheckDefault">
+  #<?php echo Flight::trad("RegFormCond2"); ?><strong style="color:#ff0f39">*</strong>
+  </label>
+</div>
+        <hr>
+        <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1" disabled="true" name="Check2" id="Check2">
+  <label class="form-check-label" for="flexCheckDefault">
+  #<?php echo Flight::trad("RegFormCond3"); ?><strong style="color:#ff0f39">*</strong>
+  </label>
+</div>
+        <hr>
+        <div class="form-check">
+  <input class="form-check-input" type="checkbox" value="1"  disabled="true"name="Check3" id="Check3">
+  <label class="form-check-label" for="flexCheckDefault">
+    #<?php echo Flight::trad("RegFormCond4"); ?>
+
+  </label>
+</div>
+        <hr>
+        <div class="btns-group">
+          <a href="#" class="btn btn-prev">< <?php echo Flight::trad("Global_Back"); ?></a>
+          <input type="button" value="<?php echo Flight::trad('Global_Confirm'); ?>" id="submit-form" class="btn"/>
+        </div>
+      </div>
+    </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

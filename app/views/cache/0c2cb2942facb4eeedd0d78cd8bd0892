@@ -1,0 +1,161 @@
+<?php $__env->startSection('title', "Herramientas - Eventos"); ?>
+<?php 
+$Entidad = Flight::get('Entidad');
+$id = $Entidad['id'];
+?>
+<?php $__env->startSection('data'); ?>
+<a href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/<?php echo $Entidad['id']?>"><?php echo $Entidad['short_name']?> </a>
+    <i class='fas fa-angle-double-right'></i> Herramienta Eventos
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('back', 'http://localhost/quedo/assets/images/main/entitywall.jpg'); ?>
+<?php $__env->startSection('content'); ?>
+
+<style>
+[class*='-keyboard-shortcuts-dialog-view']{
+    display:none;
+}
+
+#divblock{
+    background-color: #e9e9e9;
+    max-height: 48vh;
+    margin-top: 2vh;
+    border-radius: 14px;
+    overflow-y: scroll;
+    margin-left: 4%;
+    max-width: 90%;
+}
+
+.divcontent{
+    width: 100%;
+    border-bottom: #f1f1f1;
+    border-bottom-style: outset;
+    border-radius: 4px;
+    /* margin-left: 1%; */
+    color: black;
+    margin-top: 4px;
+    font-weight: bolder;
+    border-width: 1.3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divcontent label{
+    margin-left: 1%;
+    max-width: 63%;
+}
+
+.divcontent label h4{
+    font-weight: bold;
+    font-size: 1.25rem;
+} 
+
+.divcontent div{
+    margin-right: 1%;
+}
+
+.divcontent button{
+    border-style: solid;
+    border-width: thin;
+    border-radius: 11px;
+}
+
+.buttonsforubi button{
+    transition: all 0.6s ease-out;
+}
+
+.buttonsforubi button:hover{
+    background-color: #39a4ff;
+    color: white;
+}
+
+.buttonsforubi .highlighted:hover{
+    background-color: #c30000;
+    color: white;
+}
+
+#btnevent{
+    background-color: #284495;
+    border-color: #100099;
+}
+
+#btnevent:hover{
+    background-color: #2f56c7;
+    border-color: #284495;
+}
+</style>
+
+<div style="min-height: 68vh;width: 98%;background-color: #f3f3f3e3;border-color: #878787;border-width: 2.5px;border-style: solid;margin-bottom: 15px;">
+  
+  <div id="nav-add" aria-labelledby="nav-add-tab">
+
+  <h1 style="color: black;font-weight: 600;margin-top: 1%;margin-left: 1%;"> Mis Eventos </h1> 
+    <hr style="border-color: black;"> <a href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/eventosnew"><button id="btnevent" class="btn btn-info" style="width: 74%;margin-left: 13%;font-weight: bold;" type="button"><i class='	far fa-plus-square'></i>&nbsp Agregar nuevo evento</button></a>
+    <div class="row" style="display: flex;justify-content: center;flex-direction: column;">
+   
+
+        <div  class="col-sm-11" id="divblock">
+            <?php
+            $array_count = count($Evento);
+            for ($i = 0; $i < $array_count; ++$i){?>
+                <div class="divcontent"> 
+                    <label>
+                        <h4><?php echo $i+1;?>.- <?php echo $Evento[$i]['titulo'];?></h4>
+                        <h6><?php echo $Evento[$i]['fecha_inicio'];?> , <?php echo $Evento[$i]['nombre'];?> , <?php echo $Evento[$i]['direccion'];?> (<?php echo $Evento[$i]['municipio'];?>)</h6>
+                    </label>
+                    <div class="buttonsforubi">
+                        <a href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/eventos/<?php echo $Evento[$i]['code'];?>"> <button> <i class='fas fa-edit'></i> Ver/Editar</button> </a>
+                        <button href="#" data-toggle="modal" id="<?php echo $i+1;?>.- <?php echo $Evento[$i]['titulo'];?>" class="highlighted" data-target="#logoutModal2" value="<?php echo $Evento[$i]['code'];?>"> <i class='far fa-times-circle'></i> Eliminar</button>
+                    </div>
+                </div>
+            <?php } ?>
+        </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="logoutModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><?php echo Flight::trad("Global_SureCloseHeaderEv"); ?> </h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true"></span>
+                    </button>
+                </div>
+                <div class="modal-body"><?php echo Flight::trad("Global_SureCloseEv"); ?> <label id="valueChoose" style="font-weight:bold"> </label>?</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo Flight::trad("Global_Cancel"); ?></button>
+                    <a class="btn btn-primary" id="refubi" href=""><?php echo Flight::trad("Global_Confirm"); ?></a>
+                </div>
+            </div>
+        </div>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('extrascript'); ?>
+<script type="text/javascript">
+
+let buttons = document.querySelectorAll('.highlighted');
+buttons.forEach(button => {
+
+button.addEventListener("click", () => {
+  showNumber(button)
+});
+}); 
+
+function showNumber(button) {
+
+  //document.getElementById('valueChoose').innerHTML = button.value;
+  document.getElementById('valueChoose').innerHTML = button.id;
+  document.getElementById('refubi').setAttribute('href', "<?php echo PATH_LOCALHOST; ?>deleteevent/" + button.value);
+
+}
+
+</script>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

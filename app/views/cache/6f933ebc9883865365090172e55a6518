@@ -1,0 +1,16 @@
+<?php $__env->startSection('title', 'Inicio'); ?>
+<?php $__env->startSection('content'); ?>
+    <?php echo $__env->make('layouts.main_template.searcher', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('marcontent'); ?>
+    <?php echo $__env->make('layouts.main_template.galevent', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('layouts.main_template.impevents', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('layouts.main_template.calendarmain', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+    <?php echo $__env->make('layouts.main_template.regbanner', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('footers'); ?>
+    <?php echo $__env->make('layouts.main_template.bottomfooter', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main_template.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

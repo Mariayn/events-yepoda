@@ -1,0 +1,70 @@
+<?php $__env->startSection('title', 'Modificar Usuario'); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="container" style="text-align:center; margin-top:100px">
+
+
+<h1>MODIFICAR USUARIO</h1>
+
+
+
+    <form method="post" action="<?php echo PATH_LOCALHOST; ?>formodificar" style="text-align: -webkit-center">
+
+    <?php
+        if(isset($_GET["regstatus"])){
+            $status=$_GET["regstatus"];
+                ?>
+                <div class="alert alert-danger" style="max-width:600px;" role="alert">
+                        <?php echo $status ?> - Registro Incompleto
+                </div>
+                <?php
+        }
+    ?>
+
+    <div class="input-group mb-3" style="max-width:600px;">
+        <span class="input-group-text" id="basic-addon1">U</span>
+        <input value="<?php echo $username; ?>" type="text" class="form-control" placeholder="Username" aria-label="Username" name="username" aria-describedby="basic-addon1" required >
+    </div>
+
+    <div class="input-group mb-3" style="max-width:600px;">
+        <span class="input-group-text" id="basic-addon1">@</span>
+        <input value="<?php echo $mail; ?>" type="text" class="form-control" placeholder="Mail" aria-label="Mail" name="mail" aria-describedby="basic-addon1">
+    </div>
+
+    <div class="dropdown">
+  <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-bs-toggle="dropdown" aria-expanded="false">
+    Acciones
+  </a>
+
+  <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink" style="background-color: #5e5e5e;">
+    <li><a class="dropdown-item" style="background-color: lightgreen;text-align: center;"> <button type="submit" style="border: none;background-color: lightgreen; font-weight:700;">Modificar</button></a></li>
+    <li><a class="dropdown-item" style="background-color: #5db4ff;text-align: center; font-weight: 700;" href="<?php echo PATH_LOCALHOST; ?>datosextra/<?php echo $id; ?>">Editar Datos Extra</a></li>
+    <li><a class="dropdown-item" style="background-color: #ff5d5d;text-align: center; font-weight: 700;" data-bs-toggle="modal" data-bs-target="#exampleModal">Borrar</a></li>
+  </ul>
+</div>
+
+    </form>
+    
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">¿Estás seguro de que quieres borrar el usuario?</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p> Si acepta se borrará el usuario llamado: "<?php echo $username; ?>" con email: "<?php echo $mail; ?>" e id: "<?php echo $id; ?>" </p>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" class="btn btn-danger"><a style="color: #ffffff;text-decoration: none;" href="<?php echo PATH_LOCALHOST; ?>delete/<?php echo $id; ?>">Borrar Usuario</a></button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.primary_template.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

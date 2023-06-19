@@ -1,0 +1,13 @@
+ //extends es la plantilla que quiero utilizar
+<?php $__env->startSection('title', 'pepe'); ?> //un section para yields de texto plano no tendrá stop-un section para yield con contenido complejo si debe tener stop
+
+
+    <?php $__env->startSection('body'); ?> 
+    <h1>ola PEPE!</h1>
+    <?php $__env->stopSection(); ?>    
+
+
+
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.main_template.primary', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,460 @@
+<?php $__env->startSection('title', "Herramientas - Eventos"); ?>
+<?php 
+$Entidad = Flight::get('Entidad');
+$id = $Entidad['id'];
+?>
+<?php $__env->startSection('data'); ?>
+<a href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/<?php echo $Entidad['id']?>"><?php echo $Entidad['short_name']?> </a>
+    <i class='fas fa-angle-double-right'></i> <a  href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/eventos">Herramienta Eventos</a>
+    <i class='fas fa-angle-double-right'></i> Visualizar Evento
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('back', 'http://localhost/quedo/assets/images/main/entitywall.jpg'); ?>
+<?php $__env->startSection('content'); ?>
+
+<style>
+[class*='-keyboard-shortcuts-dialog-view']{
+    display:none;
+}
+
+#divblock{
+    background-color: #e9e9e9;
+    max-height: 48vh;
+    margin-top: 2vh;
+    border-radius: 14px;
+    overflow-y: scroll;
+    margin-left: 4%;
+    max-width: 90%;
+}
+
+.divcontent{
+    width: 100%;
+    border-bottom: #f1f1f1;
+    border-bottom-style: outset;
+    border-radius: 4px;
+    /* margin-left: 1%; */
+    color: black;
+    margin-top: 4px;
+    font-weight: bolder;
+    border-width: 1.3px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.divcontent label{
+    margin-left: 1%;
+    max-width: 63%;
+}
+.mb-3, .my-3 {
+    margin-bottom: 1rem!important;
+
+}
+.divcontent label h4{
+    font-weight: bold;
+    font-size: 1.25rem;
+} 
+
+.nav-pills .nav-link {
+    border-radius: 0.15rem;
+    width: 100%;
+    background-color: #ffffff00;
+    border-style: none;
+    transition: all 0.3s ease-out;
+}
+.nav-pills .nav-link:hover {
+    border-radius: 0.15rem;
+    width: 100%;
+    background-color: #fd878726;
+    border-style: none;
+    border-bottom-color: #f1326547;
+    border-bottom-width: medium;
+    border-bottom-style: dotted;
+}
+
+.nav-pills .nav-link.active, .nav-pills .show>.nav-link {
+    color: #000;
+    border-bottom-color: #f13265;
+    border-bottom-width: medium;
+    border-bottom-style: solid;
+    background-color: #ffffff63;
+    font-weight: bolder;
+}
+
+.divcontent div{
+    margin-right: 1%;
+}
+
+#linknav{
+    color:black;
+    border-radius: 0.15rem;
+    width: 100%;
+    background-color: #ffffff00;
+    border-style: none;
+    transition: all 0.3s ease-out;
+}
+
+#linknav:hover{
+    border-radius: 0.15rem;
+    width: 100%;
+    background-color: #69d5e569;
+    border-style: none;
+    border-color: #4e73df;
+    border-bottom-width: medium;
+    border-bottom-style: ridge;
+}
+
+#linkdel{
+    color:black;
+    border-radius: 0.15rem;
+    width: 100%;
+    background-color: #ffffff00;
+    border-style: none;
+    transition: all 0.3s ease-out;
+}
+
+#linkdel:hover{
+    border-radius: 0.15rem;
+    width: 100%;
+    background-color: #ff000026;
+    border-style: none;
+    border-color: red;
+    border-bottom-width: medium;
+    border-bottom-style: ridge;
+}
+.divcontent button{
+    border-style: solid;
+    border-width: thin;
+    border-radius: 11px;
+}
+
+.buttonsforubi button{
+    transition: all 0.6s ease-out;
+}
+
+.buttonsforubi button:hover{
+    background-color: #39a4ff;
+    color: white;
+}
+
+.buttonsforubi .highlighted:hover{
+    background-color: #c30000;
+    color: white;
+}
+
+#btnevent{
+    background-color: #284495;
+    border-color: #100099;
+}
+
+#btnevent:hover{
+    background-color: #2f56c7;
+    border-color: #284495;
+}
+</style>
+
+<div style="min-height: 68vh;width: 98%;background-color: #f3f3f3e3;border-color: #878787;border-width: 2.5px;border-style: solid;margin-bottom: 15px;">
+  
+  <div id="nav-add" aria-labelledby="nav-add-tab">
+
+  <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist" style="    border-bottom-style: groove;">
+    <li class="nav-item" role="presentation" style="border-style: none;margin-right: 3px;">
+        <button class="nav-link active" id="pills-primar-tab" data-bs-toggle="pill" data-bs-target="#pills-primar" type="button" role="tab" aria-controls="pills-home" aria-selected="true">Datos Principales</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-secondar-tab" data-bs-toggle="pill" data-bs-target="#pills-secondar" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">Datos Complementarios</button>
+    </li>
+    <li class="nav-item" role="presentation">
+        <button class="nav-link" id="pills-img-tab" data-bs-toggle="pill" data-bs-target="#pills-img" type="button" role="tab" aria-controls="pills-contact" aria-selected="false">Galeria de Imagenes</button>
+    </li>
+    <li class="nav-item" style="order: 3;border-left-style: groove;">
+        <a class="nav-link" id="linkdel" href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/x/<?php echo $Evento[0]['code'];?>"><i class='	far fa-times-circle'> </i>  Eliminar</a>
+  </li>
+    <li class="nav-item" style="margin-left: auto;order: 2;border-left-style: groove;">
+        <a class="nav-link" id="linknav" href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/editeventos/<?php echo $Evento[0]['code'];?>"><i class='far fa-edit'> </i>  Editor de datos</a>
+  </li>
+
+</ul>	
+    <div class="tab-content" id="pills-tabContent">
+        <div class="tab-pane fade show active" id="pills-primar" role="tabpanel" aria-labelledby="pills-primar-tab">
+                        <div class="row" >
+                        <div class="col-sm-5" style="margin-left: 4%;">
+                            <div style="width:90%;">
+
+                                <p style="font-weight: bold;"> <i class='far fa-file	&#xf15b;	
+                fas fa-folder'></i> Datos Principales:</p>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-flag'></i> </span>
+                                    <input disabled type="text" class="form-control" name="Titulo" id="Titulo" placeholder="<?php echo $Evento[0]['titulo'];?>" aria-label="Titulo" aria-describedby="basic-addon1" required>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='	fas fa-tag'></i></span>
+                                    <input disabled type="text"  class="form-control" name="Subtitulo" id="Subtitulo" placeholder=" <?php echo $Evento[0]['subtitulo'];?>" aria-label="Subtitulo" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-tags'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['amigable'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group" style="margin-bottom: 1rem!important;">
+                                    <span class="input-group-text"> Descripción</span>
+                                    <textarea disabled style="resize: none; height: 174px;"class="form-control" name="Descripcion" id="Descripcion" aria-label="With textarea" required><?php echo $Evento[0]['descripcion'];?></textarea>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-map-marker-alt'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['ubinom'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-map-signs'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['ubidir'];?>, <?php echo $Evento[0]['ubimun'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6" style="margin-left: 4%;">
+                            <p style="font-weight: bold;"> <i class='fas fa-calendar-alt'></i> Fecha: </p>
+                            <div style="width:92%">
+
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;" ><i class='far fa-calendar-alt'></i> &ensp; Inicio</span>
+                                    <input  disabled type="text" class="form-control" name="FechaInicio"  id="FechaInicio" placeholder="<?php echo $Evento[0]['fecha_inicio'];?>" aria-label="FechaInicio" aria-describedby="basic-addon1" style="margin-right:1%">
+                                        <i style="align-self: center;" class='fas fa-long-arrow-alt-right'></i>
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><i class='far fa-calendar-alt'></i> &ensp; Final</span>
+                                    <input disabled type="text" class="form-control" name="FechaFinal" id="FechaFinal"placeholder="<?php echo $Evento[0]['fecha_fin'];?>" aria-label="FechaFinal" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;" ><i class='far fa-clock'></i> &ensp; Inicio</span>
+                                    <input disabled type="text" class="form-control" name="HoraInicio" id="HoraInicio"placeholder="<?php echo $Evento[0]['hora_inicio'];?>" aria-label="HoraInicio" aria-describedby="basic-addon1" style="margin-right:1%">
+                                            <i  style="align-self: center;" class='fas fa-long-arrow-alt-right'> </i>
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><i class='far fa-clock'></i> &ensp; Final</span>
+                                    <input disabled type="text" class="form-control" name="HoraFinal" id="HoraFinal"placeholder="<?php echo $Evento[0]['hora_fin'];?>" aria-label="HoraFinal" aria-describedby="basic-addon1">
+                                </div>
+
+                            <p style="font-weight: bold;"> <i class='	fas fa-tags'> </i> Categoría: </p>
+
+
+                            <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"  style="margin-left: 1%;"><i class='fas fa-archive'></i></span>
+                                    <input disabled type="text" class="form-control" name="FechaFinal" id="FechaFinal"placeholder="<?php echo $Evento[0]['categ'];?>" aria-label="FechaFinal" aria-describedby="basic-addon1">
+                
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><i class='fas fa-book'></i></span>
+                                    <input disabled type="text" class="form-control" name="FechaFinal" id="FechaFinal"placeholder="<?php echo $Evento[0]['subcat'];?>" aria-label="FechaFinal" aria-describedby="basic-addon1">
+                            </div>
+                                
+                                
+                                <div class="input-group mb-3">
+                                <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;border-radius: 0px;border-right-style: none;">¿Para niños?</span>
+                                    <span class="input-group-text" style="border-radius: 0px;border-left-style: dotted;"id="basic-addon1">
+                                        <input disabled type="checkbox" name="Ninos" 
+                                        <?php 
+                                            if($Evento[0]['infantil']==1){
+                                                echo "checked";
+                                            }
+                                        ?>>
+                                    </span>
+
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;border-radius: 0px;border-right-style: none;">¿Benefico?</span>
+                                    <span class="input-group-text" style="border-radius: 0px;border-left-style: dotted;"id="basic-addon1">
+                                        <input disabled type="checkbox" name="Benefico" <?php 
+                                            if($Evento[0]['benefico']==1){
+                                                echo "checked";
+                                            }
+                                        ?>>
+                                    </span>
+                                </div>
+
+                            <p style="font-weight: bold;"> <i class='far fa-eye'> </i> Visibilidad: </p>
+                            
+                            <div class="input-group mb-3">
+                                <span class="input-group-text" style="margin-left: 1%;"><i class='	fas fa-eye'></i></span>
+                                <input disabled type="text" class="form-control" name="FechaFinal" id="FechaFinal"placeholder="<?php 
+                                            if($Evento[0]['visibilidad']==0){
+                                                echo "Sin Especificar (No visible)";
+                                            }else if($Evento[0]['visibilidad']==1){
+                                                echo "Fecha Reservada (No visible)";
+                                            }else if($Evento[0]['visibilidad']==2){
+                                                echo "Confirmado (No visible)";
+                                            }if($Evento[0]['visibilidad']==3){
+                                                echo "Publicado (Visible)";
+                                            }
+                                        ?>" aria-label="FechaFinal" aria-describedby="basic-addon1">
+                                
+                                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;border-radius: 0px;border-right-style: none;">¿Autorizado?</span>
+                                    <span class="input-group-text" style="border-radius: 0px;border-left-style: dotted;"id="basic-addon1">
+                                        <input disabled type="checkbox" name="Autorizado" <?php 
+                                            if($Evento[0]['autorizado']==1){
+                                                echo "checked";
+                                            }
+                                        ?>>
+                                    </span>
+                                </div>
+                                <p style="font-weight: bold;"> <i class='fas fa-user-circle'> </i> Creado por: </p>
+                                    <div class="input-group mb-3">
+                                        <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><i class='fas fa-user-tie'></i></span>
+                                        <input disabled type="text" class="form-control" name="FechaFinal" id="FechaFinal"placeholder="<?php echo $Evento[0]['username'];?>" aria-label="FechaFinal" aria-describedby="basic-addon1">
+                                    </div>
+                                <div class="form-check form-switch">
+                                        
+                                    </div>
+                        </div>
+                        </div>
+                    </div>
+       
+        </div>
+        <div class="tab-pane fade" id="pills-secondar" role="tabpanel" aria-labelledby="pills-secondar-tab">
+        <div class="row" >
+                        <div class="col-sm-12" style="margin-left: 4%;">
+                            <div style="width:90%;">
+
+                                <p style="font-weight: bold;margin-left: 4%;"> <i class='	far fa-clipboard &#xf15b;'></i> Datos secundarios:</p>
+
+                <div class="row" >
+
+                <div class="col-sm-5" style="margin-left: 4%;">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='	fas fa-money-bill-wave'></i> &nbsp Precio oficial</span>
+                                    <input disabled type="text" class="form-control" name="Titulo" id="Titulo" placeholder="<?php echo $Evento[0]['precio'];?>" aria-label="Titulo" aria-describedby="basic-addon1" required>
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-hand-holding-usd'></i> &nbsp Precio venta anticipada</span>
+                                    <input disabled type="text"  class="form-control" name="Subtitulo" id="Subtitulo" placeholder=" <?php echo $Evento[0]['precio_venta_anticipada'];?>" aria-label="Subtitulo" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-hourglass-start'></i> &nbsp Inicio venta anticipada</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['inicio_anticipada'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-hourglass-end'></i> &nbsp Final venta anticipada</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['fin_anticipada'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                </div>
+                <div class="col-sm-5" style="margin-left: 4%;">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='	fas fa-chart-pie'></i>  &nbsp Asistencia Estimada</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['asistencia_estimada'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-chart-bar'></i>  &nbsp Asistencia Prevista</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['asistencia_prevista'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-glasses'></i>  &nbsp Observaciones</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['observaciones'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='	far fa-eye'></i> &nbsp Visibilidad Precios</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php
+                                                     if($Evento[0]['visibilidad_precio']==0){
+                                                        echo "Oculto";
+                                                    }else if($Evento[0]['visibilidad_precio']==1){
+                                                        echo "Público";
+                                                    }?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                </div>        
+
+                            </div>
+                        </div>
+                        </div>
+                </div>
+                <hr>
+                <div style="width:90%; margin-left:4%">
+                <div class="row" >
+                        <div class="col-sm-5" style="margin-left: 4%;">
+                        <p style="font-weight: bold;"> <i class='	fas fa-users	&#xf15b;'></i> Social:</p>
+                        <div class="row" >
+                        <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-hashtag'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['hashtag'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-laptop'></i> &nbsp Web</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['web'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-laptop-house'></i>&nbsp Web entradas</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['web_entradas'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                        </div>
+                        <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='fab fa-instagram'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['instagram'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fab fa-facebook-f'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['facebook'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fab fa-twitter'></i></span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['twitter'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                        </div>
+                        </div>
+                        </div>
+                        <div class="col-sm-5" style="    margin-left: 4%;border-left-style: solid;border-left-color: #9a9a9a30;border-left-width: thin;">
+                        <p style="font-weight: bold;"> <i class='	fas fa-hands-helping	&#xf15b;	'></i> Promotor:</p>
+                            <div class="row" >
+                            <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1"><i class='	fas fa-user-tag'></i> &nbsp Nombre</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['promotor_nombre'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3" >
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-envelope-square'></i> &nbsp Email</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['promotor_email'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                                </div>
+                                <div class="col-sm-6">
+                                <div class="input-group mb-3">
+                                    <span class="input-group-text" id="basic-addon1" ><i class='fas fa-phone'></i> &nbsp Teléfono</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php echo $Evento[0]['promotor_telefono'];?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+
+                                <div class="input-group mb-3" >
+                                    <span class="input-group-text" id="basic-addon1" ><i class='	far fa-eye'></i> &nbsp Visibilidad</span>
+                                    <input disabled type="text"  class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="<?php
+                                                     if($Evento[0]['promotor_visibilidad']==0){
+                                                        echo "Oculto";
+                                                    }else if($Evento[0]['promotor_visibilidad']==1){
+                                                        echo "Público";
+                                                    }?>" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                                </div>
+                                </div>
+                                </div>
+                         </div>
+                    </div>
+                    </div>
+                    
+        </div>
+        <div class="tab-pane fade" id="pills-img" role="tabpanel" aria-labelledby="pills-img-tab">
+            AQUI VAN LAS IMAGENES :D
+        </div>
+    </div>
+  </div>
+</div>
+
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('extrascript'); ?>
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

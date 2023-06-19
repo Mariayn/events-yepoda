@@ -1,0 +1,440 @@
+<?php 
+$entidades = $_SESSION["Membership"]["ArrayEntidadesUser"];
+$id = $_SESSION["Entity"]["Selected_id"];
+?>
+
+
+<?php $__env->startSection('title', "Herramientas - Nuevo Evento"); ?>
+<?php $__env->startSection('data'); ?>
+    <a  href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/<?php echo $_SESSION["Entity"]["Selected_id"]?>"><?php echo $entidades[$id]['corto']?> </a>
+    <i class='fas fa-angle-double-right'></i> <a  href="<?php echo PATH_LOCALHOST; ?>dashboard/entity/<?php echo $_SESSION["Entity"]["Selected_id"]?>/eventos">Herramienta Eventos</a>
+    <i class='fas fa-angle-double-right'></i> Nuevo Evento
+<?php $__env->stopSection(); ?>
+<?php $__env->startSection('back', 'http://localhost/quedo/assets/images/main/entitywall.jpg'); ?>
+<?php $__env->startSection('content'); ?>
+
+<style>
+[class*='-keyboard-shortcuts-dialog-view']{
+    display:none;
+}
+
+#searchbuttons button{
+    background-color: #eaecf4;
+    color: #6e707e;
+    border-color: #6e707e;
+    transition: all 0.3s ease-out;
+}
+
+#searchbuttons button:hover{
+    background-color: #12b5cb;
+    color: white;
+}
+
+#pbutton{
+    background-color: #626262!important;
+    border-color: #202020!important;
+    color: white!important;
+    font-weight: 600;
+}
+
+#buttonmap{
+    background-color: #c1e5a1;
+    border-radius: 0px;
+    color: black;
+    transition: all 0.3s ease-out;
+    cursor: pointer;
+}
+
+#buttonmap:hover{
+    background-color: #98ff7e;
+}
+
+#quest{
+    margin-left: 4px;
+    cursor: help;
+    height: fit-content;
+    opacity: 70%;
+    font-size: small;
+    transition: all 0.3s ease-out;
+}
+
+#quest:hover{
+    margin-left: 4px;
+    opacity: 100%;
+    color: #e10e0e;
+    transform: scale(1.2);
+}
+
+</style>
+
+<div style="min-height: 68vh;width: 98%;background-color: #f3f3f3e3;border-color: #878787;border-width: 2.5px;border-style: solid;margin-bottom: 15px;">
+  
+  <div id="nav-add" aria-labelledby="nav-add-tab">
+
+  <h1 style="color: black;font-weight: 600;margin-top: 1%;margin-left: 1%;"> Crear Nuevo Evento </h1>
+    <hr style="border-color: black;">
+    <form method="post" action="<?php echo PATH_LOCALHOST; ?>regEvent" class="form" id="formEventReg" onsubmit="event.preventDefault()" style="color: black;font-weight: 500;">
+    <div class="row" >
+        <div class="col-sm-5" style="margin-left: 4%;">
+            <div style="width:90%;">
+
+                <p style="font-weight: bold;"> <i class='far fa-file	&#xf15b;	
+fas fa-folder'></i> Datos Principales:</p>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><strong style="color:#e71d40c2">*</strong><i class='fas fa-flag'></i> </span>
+                    <input type="text" class="form-control" name="Titulo" id="Titulo" placeholder="Titulo" aria-label="Titulo" aria-describedby="basic-addon1" required>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class='	fas fa-tag'></i></span>
+                    <input type="text" class="form-control" name="Subtitulo" id="Subtitulo" placeholder="Subtitulo" aria-label="Subtitulo" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"><i class='fas fa-tags'></i></span>
+                    <input type="text" class="form-control" name="TituloAmigable" id="TituloAmigable" placeholder="Titulo Amigable" aria-label="TituloAmigable" aria-describedby="basic-addon1">
+                </div>
+                <div class="input-group" style="margin-bottom: 1rem!important;">
+                    <span class="input-group-text"> <strong style="color:#e71d40c2">*</strong>Descripción</span>
+                    <textarea style="resize: none; height: 174px;"class="form-control" name="Descripcion" id="Descripcion" aria-label="With textarea" required></textarea>
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" ><strong style="color:#e71d40c2">*</strong><i class='fas fa-map-marker-alt'></i></span>
+                    <select id="Ubicacion" class="form-control" name="Ubicacion" required>
+                    <option value="x" selected disabled>Selecciona una ubicación</option>
+                    <?php
+                            $array_count = count($Ubicaciones);
+                            for ($i = 0; $i < $array_count; ++$i){?>
+                        <option value="<?php echo $Ubicaciones[$i]['code']; ?>"><?php echo $Ubicaciones[$i]['nombre']; ?></option>
+                    <?php } ?>
+
+                    </select>
+                    <span data-toggle="modal" data-target="#modal" class="input-group-text" id="buttonmap" ><i class='fas fa-plus-circle'></i></span>
+            </div>
+
+            </div>
+        </div>
+        <div class="col-sm-6" style="margin-left: 4%;">
+            <p style="font-weight: bold;"> <i class='fas fa-calendar-alt'></i> Fecha: </p>
+            <div style="width:92%">
+
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;" ><strong style="color:#e71d40c2">*</strong><i class='far fa-calendar-alt'></i> &ensp; Inicio</span>
+                    <input required type="date" class="form-control" name="FechaInicio"  id="FechaInicio" placeholder="FechaInicio" aria-label="FechaInicio" aria-describedby="basic-addon1" style="margin-right:1%">
+                         <i style="align-self: center;" class='fas fa-long-arrow-alt-right'></i>
+                    <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><i class='far fa-calendar-alt'></i> &ensp; Final</span>
+                    <input type="date" class="form-control" name="FechaFinal" id="FechaFinal"placeholder="FechaFinal" aria-label="FechaFinal" aria-describedby="basic-addon1">
+                </div>
+
+                <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;" ><strong style="color:#e71d40c2">*</strong><i class='far fa-clock'></i> &ensp; Inicio</span>
+                    <input required type="text" class="form-control" name="HoraInicio" id="HoraInicio"placeholder="Hora de Inicio (00:00)" aria-label="HoraInicio" aria-describedby="basic-addon1" style="margin-right:1%">
+                            <i  style="align-self: center;" class='fas fa-long-arrow-alt-right'> </i>
+                    <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><i class='far fa-clock'></i> &ensp; Final</span>
+                    <input type="text" class="form-control" name="HoraFinal" id="HoraFinal"placeholder="Hora de Finalización (00:00)" aria-label="HoraFinal" aria-describedby="basic-addon1">
+                </div>
+
+            <p style="font-weight: bold;"> <i class='	fas fa-tags'> </i> Categoría: </p>
+
+
+            <div class="input-group mb-3">
+                    <span class="input-group-text" id="basic-addon1"  style="margin-left: 1%;"><strong style="color:#e71d40c2">*</strong><i class='fas fa-archive'></i></span>
+                    <select id="Categoria" class="form-control" name="Categoria" required>
+                        <option value="" selected disabled>Selecciona una categoría</option>
+                       
+                        <?php
+                            $array_count = count($Categorias);
+                            for ($i = 0; $i < $array_count; ++$i){?>
+                        <option value="<?php echo $Categorias[$i]['id']; ?>"><?php echo $Categorias[$i]['titulo']; ?></option>
+                    <?php } ?>
+                    </select>
+ 
+                    <span class="input-group-text" id="basic-addon1" style="margin-left:1%"><strong style="color:#e71d40c2">*</strong><i class='fas fa-book'></i></span>
+                    <select id="SubCategoria" class="form-control" name="SubCategoria" required>
+                        <option value="x" selected disabled>Primero selecciona una categoria</option>
+                       
+                    
+                    </select>
+            </div>
+                
+                
+                <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;border-radius: 0px;border-right-style: none;">¿Para niños?</span>
+                    <span class="input-group-text" style="border-radius: 0px;border-left-style: dotted;"id="basic-addon1">
+                        <input type="checkbox" name="Ninos" value="1">
+                    </span>
+
+                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;border-radius: 0px;border-right-style: none;">¿Benefico?</span>
+                    <span class="input-group-text" style="border-radius: 0px;border-left-style: dotted;"id="basic-addon1">
+                        <input type="checkbox" name="Benefico" value="1">
+                    </span>
+                </div>
+
+            <p style="font-weight: bold;"> <i class='far fa-eye'> </i> Visibilidad: </p>
+            
+            <div class="input-group mb-3">
+                <span class="input-group-text" style="margin-left: 1%;"><strong style="color:#e71d40c2">*</strong><i class='	fas fa-eye'></i></span>
+                    <select id="Visibilidad" class="form-control" name="Visibilidad" required>
+                        <option value="x" selected disabled>Selecciona una opción de visibilidad</option>
+                        <option value="0"> Sin Especificar (No visible) </option>
+                        <option value="1"> Fecha Reservada (No visible) </option>
+                        <option value="2"> Confirmado (No visible) </option>
+                        <option value="3"> Publicado (Visible) </option>
+                    </select>
+                  
+                    <span class="input-group-text" id="basic-addon1" style="margin-left: 1%;border-radius: 0px;border-right-style: none;">¿Autorizado?</span>
+                    <span class="input-group-text" style="border-radius: 0px;border-left-style: dotted;"id="basic-addon1">
+                        <input type="checkbox" name="Autorizado" value="1">
+                    </span>
+                </div>
+                
+                <div class="form-check form-switch">
+                        
+                    </div>
+        </div>
+        </div>
+    </div>
+    <div class="row" style="display: flex;justify-content: center;">
+        <button class="btn btn-primary" id="submit-form" style="
+    margin-bottom: 10px;
+    margin-top: 12px;
+    width: 39%;
+    height: 52px;
+    font-weight: 800;">
+    Continuar  <i class='far fa-plus-square'></i> </button>
+    </div>
+    </form>
+
+  </div>
+</div>
+
+<div class="modal fade" id="modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"><?php echo Flight::trad("Global_NewUbiModal"); ?> 
+                    <label id="quest" class="cellcont" data-bs-toggle="popover" data-bs-placement="top" data-bs-content='
+                    Utiliza solo esta ventana para añadir ubicaciones cuando sea urgente hacerlo de esta manera, ya sea por tener el formulario de eventos ya completado o por otro motivo
+                    que le fuerce a ello, en cualquier otra situación es recomendable añadirlas desde la herramienta de ubicaciones' 
+                    data-bs-trigger="hover focus">
+                     <i class='fas fa-question-circle'></i>
+                    </label>
+                    </h5>
+                </div>
+                    
+
+
+        <form method="post" action="<?php echo PATH_LOCALHOST; ?>regUbiSimple" class="form" id="formUbiReg" onsubmit="event.preventDefault()" style="color: black;font-weight: 500;">
+        <div class="row" >
+            <div class="col-sm-11" style="margin-left: 4%;">
+                <div style="width:92%">
+
+                    <p style="font-weight: bold;">Datos:</p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class='fas fa-flag'></i></span>
+                        <input type="text" class="form-control" name="Nombre" id="txtNombre" placeholder="Nombre" aria-label="Nombre" aria-describedby="basic-addon1">
+                    </div>
+
+                    <div class="input-group" style="margin-bottom: 1rem!important;">
+                        <span class="input-group-text"> Descripción</span>
+                        <textarea style="resize: none;"class="form-control" name="Descripcion" id="txtDescripcion" aria-label="With textarea"></textarea>
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class='fas fa-phone'></i></span>
+                        <input type="text" class="form-control"  name="Telefono" id="txtTelefono" placeholder="Teléfono" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    <p style="font-weight: bold;">Localización:</p>
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class='	fas fa-map-marker-alt'></i></span>
+                        <input type="text" class="form-control" name="txtDireccion" id="txtDireccion"placeholder="Direccion" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+                    
+                    <div class="input-group mb-3">
+                        <span class="input-group-text" id="basic-addon1"><i class='fas fa-map-pin'></i></span>
+                        <input type="text" class="form-control" name="txtCodPostal" id="txtCodPostal"placeholder="Código Postal" aria-label="Username" aria-describedby="basic-addon1">
+                    </div>
+
+                
+
+                    <div class="input-group mb-3">
+                    <span class="input-group-text"><i class='fas fa-map'></i></span>
+                        <select id="txtProvincia" class="form-control" name="txtProvincia" required>
+                            <option value="<?php echo $entidades[$id]['provincia']; ?>" selected><?php echo $entidades[$id]['provincia']; ?></option>
+                            <?php
+                            $array_count = count($Provincias);
+                            for ($i = 0; $i < $array_count; ++$i){?>
+                            <option value="<?php echo $Provincias[$i]['label']; ?>"><?php echo $Provincias[$i]['label']; ?></option>
+                            <?php } ?>
+                        </select>
+                        <span class="input-group-text"><i class='fas fa-city'></i></span>
+                        <select id="txtMunicipio" class="form-control" name="txtMunicipio" required>
+                            <option value="<?php echo $entidades[$id]['municipio']; ?>" selected><?php echo $entidades[$id]['municipio']; ?></option>
+                        </select>
+                    </div>
+                </div>
+             </div>
+        </div>
+        <div class="row" >
+            <div class="col-sm-11" style="margin-left: 4%;    display: flex;justify-content: center;">
+                    <button class="btn btn-primary" id="submit-form2" 
+                    style="
+                    margin-bottom: 10px;
+                    margin-top: 8px;
+                    width: 39%;
+                    height: 52px;
+                    font-weight: 800;">
+                    Añadir Ubicación  <i class='far fa-plus-square'></i> </button>
+
+              
+                    <label id="quest" class="cellcont" data-bs-toggle="popover" data-bs-placement="top" data-bs-content='
+                    Recuerda que al añadir de forma rápida una ubicación no se guardarán sus coordenadas. Tendrás que añadirlas más adelante editando la nueva ubicación desde su herramienta' 
+                    data-bs-trigger="hover focus">
+                     <i class='fas fa-question-circle'></i>
+                    </label>
+                
+
+            </div>
+        </div>
+        </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                    
+
+
+
+
+
+
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="button" data-dismiss="modal"><?php echo Flight::trad("Global_Cancel"); ?></button>
+                </div>
+            </div>
+        </div>
+</div>
+
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('extrascript'); ?>
+
+<script type="text/javascript">
+ 
+ $( "#Categoria" ).change(function() {
+  $cod_cat=$(this).val();
+  SearchCat($cod_cat);
+});
+
+
+function SearchCat(cod_cat){
+  $.ajax({
+type: "POST",
+data:{
+cod_cat: cod_cat
+},
+url: "<?php echo PATH_LOCALHOST; ?>data/post/subcat",  
+success: function(response) {
+var data = JSON.parse(response);    
+$( "#SubCategoria" ).empty();
+$( "#SubCategoria" ).append( $( "<option value='x' selected disabled>Selecciona una subcategoría</option>" ) );
+$.each( data, function( key, value ) {
+  $( "#SubCategoria" ).append( $( "<option value=" + value.id + ">" + value.subcategoria + "</option>" ) );
+});
+
+
+}
+});
+}
+
+
+let buttons = document.querySelectorAll('.highlighted');
+
+
+var popoverTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="popover"]'))
+var popoverList = popoverTriggerList.map(function (popoverTriggerEl) {
+  return new bootstrap.Popover(popoverTriggerEl)
+})
+
+$( "#txtProvincia" ).change(function() {
+  $cod_prov=$(this).val();
+  SearchMuni($cod_prov);
+});
+
+
+function SearchMuni(cod_prov){
+  $.ajax({
+type: "POST",
+data:{
+cod_prov: cod_prov
+},
+url: "<?php echo PATH_LOCALHOST; ?>data/post/munis2",  
+success: function(response) {
+var data = JSON.parse(response);    
+$( "#txtMunicipio" ).empty();
+$( "#txtMunicipio" ).append( $( "<option value=" + "x" + "> --- </option>" ) );
+$.each( data, function( key, value ) {
+  $( "#txtMunicipio" ).append( $( "<option value=" + value.label + ">" + value.label + "</option>" ) );
+});
+
+
+}
+});
+}
+var modal;
+document.addEventListener('DOMContentLoaded', () => {
+    modal = new bootstrap.Modal(document.getElementById('modal'));
+});
+
+function functionajax()
+{
+
+    var data=$("#formUbiReg").serialize();
+  $.ajax({
+type: "POST",
+data:data,
+url: "<?php echo PATH_LOCALHOST; ?>data/post/regUbiSimple",  
+success: function(response) {
+var data = JSON.parse(response);    
+$( "#Ubicacion" ).empty();
+$( "#formUbiReg")[0].reset();
+
+$( "#Ubicacion" ).append( $( "<option value='x' selected disabled>Selecciona una ubicación</option>" ) );
+$.each( data, function( key, value ) {
+  $( "#Ubicacion" ).append( $( "<option value=" + value.code + ">" + value.nombre + "</option>" ) );
+});
+
+console.log(modal);
+modal.hide();
+
+}
+});
+}
+</script>
+<script src="<?php echo PATH_LOCALHOST; ?>assets/js/regformubisimple.js?<?php echo date('YmdHis'); ?>"></script>
+<script src="<?php echo PATH_LOCALHOST; ?>assets/js/regformevent.js?<?php echo date('YmdHis'); ?>"></script>
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.dashboard.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

@@ -1,0 +1,35 @@
+
+
+<div class="container-fluid fixed" id="bg_search">
+           
+    <div class="container" style="120px 0">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12" style="text-align: center;">
+                <div class="slider-title_box">
+                    <div class="row">
+                        <div class="col-md-12" >
+                            <div class="slider-content_wrap" id="searchtext">
+                                <h1 style="color:white; font-size: 4.5rem"><?php echo Flight::trad("SearcherPart1"); ?></h1>
+                                <h1 style="color:white; font-size: 4.5rem"><?php echo Flight::trad("SearcherPart2"); ?></h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10">
+                            <label class="btn-group" id="groupsearcher" role="group">
+                             <div class="form-floating">
+                                 <input type="text" class="form-control" id="floatEvent" placeholder="Evento">
+                                  <label for="Evento" id="searchbar_lab"><?php echo Flight::trad("SearcherLabel"); ?></label>
+                             </div>
+    
+                             <button type="button" class="btn btn-primary" id="button_search"><img src="<?php echo PATH_LOCALHOST; ?>assets/images/lupa.png" class="icon-magnifier search-icon" style="height: 22px"></button>
+                             <button type="button" class="btn btn-primary" id="button_av"><img src="<?php echo PATH_LOCALHOST; ?>assets/images/lupa_avanzada.png" class="icon-magnifier search-icon" style="height: 22px"></button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

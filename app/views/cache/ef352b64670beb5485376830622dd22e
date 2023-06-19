@@ -1,0 +1,203 @@
+
+<link href="<?php echo PATH_LOCALHOST; ?>assets/dashboard-temp/css/all.min.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans&family=Merriweather:wght@900&display=swap" rel="stylesheet">
+
+<!-- Custom styles for this template-->
+<link href="<?php echo PATH_LOCALHOST; ?>assets/dashboard-temp/css/sb-admin-head.min.css" rel="stylesheet">
+<script src="<?php echo PATH_LOCALHOST; ?>assets/dashboard-temp/vendor/jquery/jquery.min.js"></script>
+<script src="<?php echo PATH_LOCALHOST; ?>assets/dashboard-temp/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+<!-- Custom scripts for all pages-->
+<script src="<?php echo PATH_LOCALHOST; ?>assets/dashboard-temp/js/sb-admin-2.min.js"></script>
+
+
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid fixed">
+    <div style="display: flex;justify-content: space-between;flex-direction: row;flex-wrap: nowrap;align-items: flex-end;align-content: center;">
+    <a href="<?php echo PATH_LOCALHOST; ?>"> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/inicio.png" class="image"image.png></a>
+    
+        
+    <?php if (isset($_SESSION["Membership"]["Nombre"])){ ?>
+    
+ <!-- Nav Item - User -->
+ <ul class="navbar-nav ml-auto" style="    display: flex;
+    flex-direction: row;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    align-items: center;">
+
+
+            <!-- Nav Item - Alerts -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="alertsDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i style='font-size:24px; color:white !important' class='fas'>&#xf0f3;</i>
+
+                    <!-- Counter - Alerts -->
+                    <span class="badge badge-danger badge-counter">3+</span>
+                </a>
+                <!-- Dropdown - Alerts -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="alertsDropdown">
+                    <h6 class="dropdown-header" style="background-color: #c60033; border: 1px solid #ae003a;">
+                        Alertas de Eventos Proximos
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-primary">
+                            <i  class="fas fa-exclamation"></i>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="small text-gray-500">12 de Abril de 2023</div>
+                            <span class="font-weight-bold">Leyendas del Rock</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-success">
+                            <i  class="fas fa-exclamation"></i>
+                            </div>
+                        </div>
+                        <div>
+                        <div class="small text-gray-500">15 de Abril de 2023</div>
+                            <span class="font-weight-bold">Bailes tradicionales</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="mr-3">
+                            <div class="icon-circle bg-warning">
+                            <i  class="fas fa-exclamation"></i>
+                            </div>
+                        </div>
+                        <div>
+                        <div class="small text-gray-500">22 de Abril de 2023</div>
+                            <span class="font-weight-bold">Comida Popular Albacete</span>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Mostrar todas mis alertas</a>
+                </div>
+            </li>
+
+            <!-- Nav Item - Messages -->
+            <li class="nav-item dropdown no-arrow mx-1">
+                <a class="nav-link dropdown-toggle" href="#" id="messagesDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <i style='font-size:24px; color:white !important' class='fas'>&#xf0e0;</i>
+                    <!-- Counter - Messages -->
+                    <span class="badge badge-danger badge-counter">7</span>
+                </a>
+                <!-- Dropdown - Messages -->
+                <div class="dropdown-list dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="messagesDropdown">
+                    <h6 class="dropdown-header" style="background-color: #c60033; border: 1px solid #ae003a;">
+                        Centro de Notificaciones
+                    </h6>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle" src="<?php echo PATH_LOCALHOST; ?>assets/images/test/avatar2.png"
+                                alt="...">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div class="font-weight-bold">
+                            <div class="text-truncate">Cambios en la versión 1.2.5 de Quedo.es</div>
+                            <div class="small text-gray-500">Equipo de quedo.es · 58m</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle"  src="<?php echo PATH_LOCALHOST; ?>assets/images/test/avatar5.png"
+                                alt="...">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Revisa el nuevo cartel que traemos este año</div>
+                            <div class="small text-gray-500">Leyendas del rock · 1d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle"  src="<?php echo PATH_LOCALHOST; ?>assets/images/test/avatar3.png"
+                                alt="...">
+                            <div class="status-indicator bg-warning"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">Retraso en el concierto de Pablo Nombre Falso</div>
+                            <div class="small text-gray-500">Ayuntamiento de Albacete · 2d</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item d-flex align-items-center" href="#">
+                        <div class="dropdown-list-image mr-3">
+                            <img class="rounded-circle"  src="<?php echo PATH_LOCALHOST; ?>assets/images/test/avatar4.png"
+                                alt="...">
+                            <div class="status-indicator bg-success"></div>
+                        </div>
+                        <div>
+                            <div class="text-truncate">No olvides que se acaba el plazo para unirse a la asociación</div>
+                            <div class="small text-gray-500">Ayuntamiento de Masegoso · 2w</div>
+                        </div>
+                    </a>
+                    <a class="dropdown-item text-center small text-gray-500" href="#">Leer más mensajes</a>
+                </div>
+            </li>
+
+            <div class="topbar-divider d-none d-sm-block"></div>
+
+            <!-- Nav Item - User Information -->
+            <li class="nav-item dropdown no-arrow">
+                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="mr-2 d-none d-lg-inline text-gray-600 small" style="color:white !important; 
+                margin-left: 10px;"><?php echo $_SESSION["Membership"]["Nombre"]; ?> <?php echo $_SESSION["Membership"]["Apellido1"]; ?></span>
+                    <img class="img-profile rounded-circle" style="height: 50px!important;"
+                        src="<?php echo PATH_LOCALHOST; ?>assets/images/avatar.png">
+                </a>
+                <!-- Dropdown - User Information -->
+                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                    aria-labelledby="userDropdown">
+                    <a class="dropdown-item" href="<?php echo PATH_LOCALHOST; ?>dashboard/myuser">
+                        <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Usuario Personal
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-building fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Empresa Ejemplo
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-landmark fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Ayuntamiento Ejemplo
+                    </a>
+                    <a class="dropdown-item" href="#">
+                        <i class="fas fa-globe fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Asociación Ejemplo
+                    </a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="<?php echo PATH_LOCALHOST; ?>logout">
+                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                        Cerrar Sesión
+                    </a>
+                </div>
+            </li>
+            </ul>
+        <!-- Nav Item - Stop -->
+
+    <?php }else{?>
+
+    <ul style="display: flex;list-style: none;">
+        <li><a href="<?php echo PATH_LOCALHOST; ?>login"><button type="button"  id="button_reg" class="btn btn-secondary"><?php echo Flight::trad("Global_Registro"); ?></button></a></li>
+    </ul>
+
+    <?php }?>
+        
+   
+    </div>
+    </div>
+</header>
+

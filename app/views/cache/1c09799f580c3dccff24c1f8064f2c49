@@ -1,0 +1,38 @@
+
+
+<div class="container-fluid fixed" id="ground">
+           
+    <div class="container" id="bg_log">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12" >
+                <div class="slider-title_box">
+                    <div class="row d-flex justify-content-center" style="margin-top: 9rem;">
+                        <div class="col-md-10" id="regcol">
+                            <form method="POST" action="<?php echo PATH_LOCALHOST; ?>userlog">
+                                <div style="text-align: center;">
+                                    <h1 style="color: #d92845;    text-align: center; padding-top: 2rem"> <?php echo Flight::trad("LogMenuHead"); ?> </h1>
+                                    <div class="form-floating" id="formfloatlog">
+                                    <input type="text" class="form-control" id="floatEvent" name="mail" placeholder="email">
+                                    <label for="Evento" id="searchbar_lab"><?php echo Flight::trad("LogInput1"); ?></label>
+                                </div>
+                                <div class="form-floating" id="formfloatlog">
+                                    <input type="password" class="form-control" id="floatEvent" name="password" placeholder="contraseña">
+                                    <label for="Evento" id="searchbar_lab"><?php echo Flight::trad("Global_password"); ?></label>
+                                </div>
+                                <label id="logflabel">
+                                    <button style="margin-top: 2rem;" type="submit" class="btn btn-primary"><?php echo Flight::trad("LogButton1"); ?></button>
+                                    <h3 style="margin-left: 2rem;font-size: 1.2rem;"><a id="logflabel_a" href="#"><?php echo Flight::trad("LogButton2"); ?></a></h3>
+                                </label>
+                                <hr>
+                                <label>
+                                    <h3 style="margin-top: 1.8rem;     text-align: center;font-size: 1.35rem;"><?php echo Flight::trad("LogButton3"); ?> <a href="<?php echo PATH_LOCALHOST; ?>regis" style="color: #e33863;"> <?php echo Flight::trad("LogButton4"); ?> </a></h3>
+                                </label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

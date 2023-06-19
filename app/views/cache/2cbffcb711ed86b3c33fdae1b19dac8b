@@ -1,0 +1,13 @@
+
+
+<header id="header" class="header d-flex align-items-center fixed-top">
+    <div class="container-fluid fixed">
+    <div style="display: flex;justify-content: space-between;flex-direction: row;flex-wrap: nowrap;align-items: flex-end;align-content: center;">
+    <a href="<?php echo PATH_LOCALHOST; ?>"> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/inicio.png" class="image" style="height: 70px"></a>
+
+        <ul style="display: flex;list-style: none;">
+            <li><a href="<?php echo PATH_LOCALHOST; ?>login"><button type="button"  id="button_reg" class="btn btn-secondary">ACCEDE</button></a></li>
+        </ul>
+    </div>
+    </div>
+</header>

@@ -1,0 +1,18 @@
+<header>
+    <div class="container-fluid fixed" style="background-color: black">
+    <div style="display: flex;justify-content: space-between;flex-direction: row;flex-wrap: nowrap;align-items: flex-end;align-content: center;">
+    <a href="<?php echo PATH_LOCALHOST; ?>"> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/inicio.png" class="image" style="height: 70px"></a>
+    <?php if (Flight::get("Usuario")){ ?>
+        <h2 style="color: #a3a3a3;"> Bienvenido, <?php echo Flight::get("Usuario")->id; ?> </h2>
+    <?php }else { ?>
+        <h2 style="color: #a3a3a3;"> Sesión No Iniciada </h2>
+    <?php } ?>
+
+        <ul style="display: flex;list-style: none;">
+            <li><a href="<?php echo PATH_LOCALHOST; ?>login"><button type="button" class="btn btn-outline-light" style="height:120%;">Accede</button></a></li>
+            <li><a href="<?php echo PATH_LOCALHOST; ?>register"><button type="button" class="btn btn-primary" style="margin-right:10px; height:120%;">Registrate</button></a></li>
+            <li><a href="<?php echo PATH_LOCALHOST; ?>lister"><button type="button" class="btn btn-secondary" style="margin-right:10px; height:120%;">Listado Usuarios</button></a></li>
+        </ul>
+    </div>
+    </div>
+</header>

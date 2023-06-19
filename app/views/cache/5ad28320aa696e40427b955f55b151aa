@@ -1,0 +1,49 @@
+
+<div class="row justify-content-center" id="flextitle">
+    <h2 style="width: unset; padding-top: 17px;margin-top: 10px;">Eventos destacados</h2>
+    <hr id="titlehr"> </hr>
+</div>
+
+
+<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+    <a href="/login">
+        <img src="<?php echo PATH_LOCALHOST; ?>assets/images/test/carouseltest1.png" alt="...">
+        <label class="imgtext" style="background-color: #00000059; border-style: inset;
+    border-color: #e338632b;">
+            <h2>Danzas Tradicionales</h2>
+            <h4>Ayuntamiento de Albacete</h4>
+            <h4>6 Mayo - 18:00</h4>
+        </label>
+        </a>
+    </div>
+    <div class="carousel-item">
+    <img src="<?php echo PATH_LOCALHOST; ?>assets/images/test/carouseltest2.png" class="d-block w-100" alt="...">
+    <label class="imgtext" style="background-color: #00000059; border-style: inset;
+    border-color: #e338632b;">
+            <h2>Comida Popular</h2>
+            <h4>Plaza Mayor - Casas de Lázaro</h4>
+            <h4>18 Mayo - 14:00</h4>
+        </label>
+    </div>
+    <div class="carousel-item">
+    <img src="<?php echo PATH_LOCALHOST; ?>assets/images/test/carouseltest3.png" class="d-block w-100" alt="...">
+    <label class="imgtext" style="background-color: #00000059; border-style: inset;
+    border-color: #e338632b;">
+            <h2>Leyendas del Rock</h2>
+            <h4>Sala Apolo - Villena</h4>
+            <h4>14 Agosto - 22:00</h4>
+        </label>
+    </div>
+
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

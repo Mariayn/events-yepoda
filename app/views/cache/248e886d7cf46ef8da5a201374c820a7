@@ -1,0 +1,23 @@
+<?php $__env->startSection('title', 'Inicio'); ?>
+<?php $__env->startSection('content'); ?>
+<?php
+ if($pepe!=null){
+   echo "<h3> Hola, bienvenido de nuevo ";
+   ?> 
+   <?php echo $pepe; ?>.</h3>
+   <?php
+ }
+ ?>
+ <?php if($pepe!=null): ?>
+ <?php echo "<h3>Quedo, es tu página de visualización de eventos en tu ciudad.</h3> "; ?>
+
+ <?php endif; ?>
+ <img src="<?php echo PATH_LOCALHOST; ?>assets/images/inicio.png" class="image" style="width: 40%!important;">
+ <h2>  <a href="<?php echo PATH_LOCALHOST; ?>login">Logeate</a></h2>
+ <h2>  <a href="<?php echo PATH_LOCALHOST; ?>info">Info</a></h2>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('footer'); ?>
+<?php echo $__env->make('layouts.public_templates.footer', compact("fecha_format"), array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.public_templates.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

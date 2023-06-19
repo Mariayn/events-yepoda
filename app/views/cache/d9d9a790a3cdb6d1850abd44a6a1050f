@@ -1,0 +1,40 @@
+<div class="container-fluid fixed" style="background-image: url('http://localhost/jose-test/assets/images/searcher_img.png');background-size: cover;min-height: 747px;display: grid;align-content: center;">
+           
+    <div class="container" style="120px 0">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12" style="text-align: center;">
+                <div class="slider-title_box">
+                    <div class="row">
+                        <div class="col-md-12" >
+                            <div class="slider-content_wrap" style="text-shadow: -1px 1px 2px #000,
+				  1px 1px 2px #000,
+				  1px -1px 0 #000,
+				  -1px -1px 0 #000;">
+                                <h1 style="color:white; font-size: 3.5rem">Descubre que eventos</h1>
+                                <h1 style="color:white; font-size: 3.5rem">hay a tu alrededor</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10">
+                            <label class="btn-group" role="group">
+                             <div class="form-floating" >
+                                 <input type="text" class="form-control" id="floatingCity" placeholder="Ciudad">
+                                  <label for="floatingCity">¿En qué ciudad buscas?</label>
+                             </div>
+                
+                             <div class="form-floating">
+                                  <input type="text" class="form-control" id="floatingEvent" placeholder="Evento">
+                                  <label for="floatingEvent">¿Qué eventos buscas?</label>
+                             </div>
+    
+                             <button type="button" class="btn btn-primary"><img src="<?php echo PATH_LOCALHOST; ?>assets/images/lupa.png" class="icon-magnifier search-icon" style="height: 22px">Buscar</button>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+<div style="padding-left: 9%; padding-right: 9%; padding-bottom: 36px;">
+<div class="row justify-content-center" id="flextitle">
+    <h2 style="width: unset; padding-top: 17px;margin-top: 9px;"><?php echo Flight::trad("Gal_Head"); ?></h2>
+    <hr id="titlehr"> </hr>
+</div>
+
+<div id="galeventer">
+    <div id="galevent-col-1" class="galcol">
+        <div class="long_img"> 
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/empresarial.png" style="width:100%"> 
+        <label class="imgtext"><h3><?php echo Flight::trad("Emp_Ev"); ?></h3><h4>0 <?php echo Flight::trad("Global_events"); ?></h4></label>
+        </div>
+        <div class="short-img">
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/childs.png" style="width:100%">
+            <label class="imgtext"><h3><?php echo Flight::trad("Inf_ev"); ?></h3><h4>0 <?php echo Flight::trad("Global_events"); ?></h4></label>
+        </div>
+    </div>
+    <div id="galevent-col-2" class="galcol">
+    <div class="short-img-top">
+        <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/cience.png" style="width:100%">
+        <label class="imgtext"><h3><?php echo Flight::trad("Exp_ev"); ?></h3><h4>0 <?php echo Flight::trad("Global_events"); ?></h4></label>
+    </div>
+        <div class="long_img">
+             <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/cultural.png" style="width:100%">
+             <label class="imgtext"><h3><?php echo Flight::trad("Cul_ev"); ?></h3><h4>0 <?php echo Flight::trad("Global_events"); ?></h4></label>
+        </div>
+    </div>
+    <div id="galevent-col-3" class="galcol">
+        <div class="long_img">
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/deportivo.png" style="width:100%"> 
+            <label class="imgtext"><h3><?php echo Flight::trad("Dep_ev"); ?></h3><h4>0 <?php echo Flight::trad("Global_events"); ?></h4></label>
+        </div>
+        <div class="short-img">
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/concert.png" style="width:100%">
+            <label class="imgtext"><h3><?php echo Flight::trad("Con_ev"); ?></h3><h4>0 <?php echo Flight::trad("Global_events"); ?></h4></label>
+        </div>
+    </div>
+</div>
+</div>

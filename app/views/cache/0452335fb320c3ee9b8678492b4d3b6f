@@ -1,0 +1,22 @@
+<?php $__env->startSection('title','Register'); ?>
+
+<?php $__env->startSection('style'); ?>
+<style>
+</style>
+<?php $__env->stopSection(); ?>
+
+<?php $__env->startSection('body'); ?>
+    <?php echo $__env->make('layouts.main_template.simpleHeader', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+
+    
+
+
+<?php $__env->stopSection(); ?>
+
+
+
+
+<?php $__env->stopSection(); ?>
+
+
+<?php echo $__env->make('layouts.main_template.primary', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

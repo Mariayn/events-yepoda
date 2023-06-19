@@ -1,0 +1,12 @@
+<?php $__env->startSection('title', 'ERROR 404'); ?>
+<?php $__env->startSection('content'); ?>
+<div class="container" style="text-align:center; background-color:black">
+<img src="<?php echo PATH_LOCALHOST; ?>assets/images/alert.png" class="image" style="width: 100%!important;">
+  <label>
+    <h1 style="color:white">Página No Encontrada</h1>
+    <h2><a href="<?php echo PATH_LOCALHOST; ?>">Volver a inicio</a></h2>
+  </label>
+</div>
+<?php $__env->stopSection(); ?>
+
+<?php echo $__env->make('layouts.primary_template.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

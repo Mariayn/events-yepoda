@@ -1,0 +1,3 @@
+<footer>
+<h2>Hoy es: <?php echo Flight::functions()->formatDate('05/05/2005'); ?></h2>
+</fotter>

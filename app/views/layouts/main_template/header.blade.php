@@ -1,0 +1,249 @@
+
+
+    <header style="background-color:#D8FBBC" class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between py-3 border-bottom">
+      <a href="{{PATH_LOCALHOST}}viewEvents" class="d-flex align-items-center col-md-3 mb-2 mb-md-0 text-dark text-decoration-none">
+        <img src="./assets/images/logo-brand.png" alt="logo-brand" width="150" height="50">
+      </a>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="{{PATH_LOCALHOST}}viewEvents" class="nav-link px-2 link-dark active fw-bold">Explorar eventos</a></li>
+      </ul>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-dark">Sobre nosotros</a></li>
+      </ul>
+
+      <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
+        <li><a href="#" class="nav-link px-2 link-dark">Beneficios de usuario</a></li>
+      </ul>
+
+      <?php if (isset($_SESSION["Membership"]["UserID"])){ ?>
+      <div class="col-md-3 text-end">
+        <a class="btn btn-dark btn-primary text-decoration-none" href="{{PATH_LOCALHOST}}logout">Cerrar sesión
+        </a>
+
+        <a href="{{PATH_LOCALHOST}}userProfile" id ="profile" >
+          <i class="fa-solid fa-user fa-lg ms-4" style="color: #000000;"></i>
+        </a>
+               
+      </div>
+      <?php }else{?>
+
+      <div class="col-md-3 text-end">
+        <button type="button" class="btn btn-outline-primary me-2" data-bs-dismiss="modal" 
+        data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" 
+        data-bs-toggle="modal" data-bs-target="#registroModal">
+        Regístrate</button>
+      </div>
+      <?php } ?>
+
+   
+        <a class="nav-link dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fa-solid fa-globe"></i></a>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="#">English</a></li>
+          
+        </ul>
+    
+
+    </header>
+
+
+
+
+<!-- Modal de registro -->
+<div class="modal fade" id="registroModal" tabindex="-1" aria-labelledby="registroModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content px-4 py-2">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="registroModalLabel">Registro</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenido del modal de registro -->
+        <form method="POST" id="form" action="{{PATH_LOCALHOST}}userRegister" onSubmit ="return validateFormReg(this)">
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input name="email" type="email" class="form-control" id="email" placeholder="Introduce tu email">
+            <div id="errorEmail" class="error-message text-danger"></div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-md-6">
+              <label for="nombre" class="form-label">Nombre:</label>
+              <input name="name" type="text" class="form-control" id="nombre" placeholder="Introduce tu nombre">
+              <div id="errorName" class="error-message text-danger"></div>
+            </div>
+            <div class="col-md-6">
+              <label for="apellido" class="form-label">Apellido:</label>
+              <input name="lastname" type="text" class="form-control" id="apellido" placeholder="Introduce tu apellido">
+              <div id="errorLastName" class="error-message text-danger"></div>
+            </div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña:</label>
+            <input name="pass" type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
+            <div id="errorPass" class="error-message text-danger"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 my-2">Registrarse</button>
+        </form>
+        <p class="text-muted mb-0 text-center">¿Ya tienes una cuenta? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#loginModal">Entrar</a>
+        </p>
+      </div>
+      
+      <div class="modal-footer text-muted small">
+        Al utilizar este sitio web o al crear una cuenta, usted acepta los términos de uso y la política de privacidad.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+<!-- Modal de inicio de sesión -->
+<div class="modal fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content px-4 py-2">
+      <div class="modal-header">
+        <h5 class="modal-title fw-bold" id="loginModalLabel">Inicio de sesión</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Cerrar"></button>
+      </div>
+      <div class="modal-body">
+        <!-- Contenido del modal de inicio de sesión -->
+        <form method="POST" id="form2" action="{{PATH_LOCALHOST}}userLogin" onSubmit ="return validateFormLogin(this)">
+          
+
+          <div class="mb-3">
+            <label for="email" class="form-label">Email:</label>
+            <input name="email2" type="email" class="form-control" id="email" placeholder="Introduce tu email">
+            <div id="errorEmail2" class="error-message text-danger"></div>
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Contraseña:</label>
+            <input name="pass2" type="password" class="form-control" id="password" placeholder="Introduce tu contraseña">
+            <div id="errorPass2" class="error-message text-danger"></div>
+          </div>
+
+          <button type="submit" class="btn btn-primary w-100 my-2">Iniciar sesión</button>
+        </form>
+        <p class="text-muted mb-0 text-center">¿No tienes una cuenta? <a href="#" data-bs-dismiss="modal" data-bs-toggle="modal" data-bs-target="#registroModal">Regístrate</a>
+        </p>
+      </div>
+      
+      <div class="modal-footer text-muted small">
+        Al utilizar este sitio web o al crear una cuenta, usted acepta los términos de uso y la política de privacidad.
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+  // validate register
+
+  function validateFormReg(form){
+    var email_=$(form).find('input[name="email"]').val();
+    var name_=$(form).find('input[name="name"]').val();
+    var lastname_=$(form).find('input[name="lastname"]').val();
+    var pass_=$(form).find('input[name="pass"]').val();
+
+    // restart error messages
+    $(form).find('#errorEmail').text('');
+    $(form).find('#errorName').text('');
+    $(form).find('#errorLastName').text('');
+    $(form).find('#errorPass').text('');
+
+    // validate email field
+    if (email_.trim() === '') {//si esta vacio agrega mje de error y devuelver false
+        $(form).find('#errorEmail').text('Introduce tu email');
+        return false;
+      } else if (!validarEmail(email_)) {
+        $(form).find('#errorEmail').text('Correo electrónico inválido');
+        return false;
+      }
+
+      // validate name
+      if (name_.trim() === '') {
+        $(form).find('#errorName').text('Introduce tu nombre');
+        return false;
+      } 
+
+      if (lastname_.trim() === '') {
+        $(form).find('#errorLastName').text('Introduce tu apellido');
+        return false;
+      }
+
+      if (pass_.trim() === '') {
+        $(form).find('#errorPass').text('Mínimo de 6 caracteres obligatorios');
+        return false;
+      } else if (!validarPassword(pass_)) {
+        $(form).find('#errorPass').text("La contraseña debe contener al menos 1 letra mayúscula, 1 minúscula y 1 número.");
+        return false;
+      }
+
+      return true;//si todas las validaciones pasan devuelve true
+    }
+
+      $(document).ready(function() {
+    $('#form').submit(function(e) {
+      e.preventDefault(); // Evitar el envío del formulario
+      var isValid = validateFormReg(this);
+      if (isValid) {
+        this.submit(); // Enviar el formulario
+      }
+    });
+  });
+
+  // Función auxiliar para validar el formato del correo electrónico
+  function validarEmail(email_) {
+    var re = /\S+@\S+\.\S+/;
+    return re.test(email_);
+  }
+
+  function validarPassword(pass_) {
+    var reg = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[a-zA-Z]).{6,}$/;
+    return reg.test(pass_);
+  }
+
+
+
+  // validate login
+
+  function validateFormLogin(form){
+    var email_=$(form).find('input[name="email2"]').val();
+    var pass_=$(form).find('input[name="pass2"]').val();
+
+    // restart error messages
+    $(form).find('#errorEmail2').text('');
+    $(form).find('#errorPass2').text('');
+
+    // validate email field
+    if (email_.trim() === '') {//si esta vacio agrega mje de error y devuelver false
+        $(form).find('#errorEmail2').text('Introduce tu email');
+        return false;
+      } else if (!validarEmail(email_)) {
+        $(form).find('#errorEmail2').text('Correo electrónico inválido');
+        return false;
+      }
+
+      if (pass_.trim() == '') {
+        $(form).find('#errorPass2').text('Introduce contraseña');
+        return false;
+      } 
+      return true;
+    }
+      
+    $(document).ready(function() {
+    $('#form2').submit(function(e) {
+      e.preventDefault(); // Evitar el envío del formulario
+      var isValid = validateFormLogin(this);
+      if (isValid) {
+        this.submit(); // Enviar el formulario
+      }
+    });
+  });
+</script>
+
+<script src="https://cdn.datatables.net/1.13.1/js/jquery.dataTables.min.js"></script>

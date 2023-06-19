@@ -1,0 +1,39 @@
+
+<div class="row justify-content-center" id="flextitle">
+    <h2 style="width: unset; padding-top: 17px;margin-top: 10px;">¿Qué eventos buscas?</h2>
+    <hr id="titlehr"> </hr>
+</div>
+
+<div id="galeventer">
+    <div id="galevent-col-1" class="galcol">
+        <div class="long_img"> 
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/empresarial.png" style="width:100%"> 
+        <label class="imgtext"><h3>Eventos empresariales</h3><h4>0 eventos</h4></label>
+        </div>
+        <div class="short-img">
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/childs.png" style="width:100%">
+            <label class="imgtext"><h3>Infantiles</h3><h4>0 eventos</h4></label>
+        </div>
+    </div>
+    <div id="galevent-col-2" class="galcol">
+    <div class="short-img-top">
+        <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/cience.png" style="width:100%">
+        <label class="imgtext"><h3>Exposiciones</h3><h4>0 eventos</h4></label>
+    </div>
+        <div class="long_img">
+             <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/cultural.png" style="width:100%">
+             <label class="imgtext"><h3>Eventos culturales</h3><h4>0 eventos</h4></label>
+        </div>
+    </div>
+    <div id="galevent-col-3" class="galcol">
+        <div class="long_img">
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/deportivo.png" style="width:100%"> 
+            <label class="imgtext"><h3>Eventos deportivos</h3><h4>0 eventos</h4></label>
+        </div>
+        <div class="short-img">
+            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/event-gal/concert.png" style="width:100%">
+            <label class="imgtext"><h3>Conciertos</h3><h4>0 eventos</h4></label>
+        </div>
+    </div>
+</div>
+

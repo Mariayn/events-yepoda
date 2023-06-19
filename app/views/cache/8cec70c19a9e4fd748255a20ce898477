@@ -1,0 +1,20 @@
+
+
+<div class="container-fluid fixed" id="groundnotfound">
+           
+    <div class="container" id="bg_log">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12" >
+                <div class="slider-title_box">
+                    <div class="row d-flex justify-content-center" style="margin-top: 5rem;">
+                        <div class="col-md-10" id="regcolnotfound">
+                            <img src="<?php echo PATH_LOCALHOST; ?>assets/images/gif/404.gif"  class="image">
+                            <h3><?php echo Flight::trad("NotFound1"); ?></h3>
+                            <h5><?php echo Flight::trad("NotFound2"); ?></h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

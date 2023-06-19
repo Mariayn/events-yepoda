@@ -1,0 +1,23 @@
+
+<div class="row justify-content-center" id="flextitle">
+    <h2 style="width: unset; padding-top: 17px;margin-top: 10px;">¿Porque registrarme?</h2>
+    <hr id="titlehr"> </hr>
+</div>
+
+<div id="divregbban">
+
+
+<label id="regbanl1">
+<img id="regbanimg" src="<?php echo PATH_LOCALHOST; ?>assets/images/main/banreg.png" alt="...">
+</label>
+
+<label id="regbanl2">
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok">Especifica tus preferencias </h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok">Se el primero en enterarte de los nuevos eventos </h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok">Actualizaciones a tu correo electronico </h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok">Funcionalidades extra </h4>
+    <h4> <img src="<?php echo PATH_LOCALHOST; ?>assets/images/main/oktag.png" alt="ok">Y muchas más ventajas... </h4>
+    <button id="buttonreg2" class="btn btn-secondary"> Regístrate Gratis </button>
+<label>
+
+</div>

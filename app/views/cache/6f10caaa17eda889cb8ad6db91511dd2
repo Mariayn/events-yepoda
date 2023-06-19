@@ -1,0 +1,45 @@
+<footer class="footer">
+    <div id="footermaindiv">
+        <div style="grid-column: 1;
+    margin-top: 20px;
+    width: 90%;">
+            <h1 style="color:#ec4884"> Quedo.es </h1>
+            <div >
+                <ol style="list-style: none;">
+                    <li>Yotta Desarrollos Tecnológicos SL.</li>
+                    <li>Paseo de la Innovación, nº 1</li>
+                    <li>Parque y Cientifico Tecnológico</li>
+                    <li>Albacete, <?php echo Flight::trad("Global_Spain"); ?></li>
+                </ol>
+            </div>
+            <label class="labelsocial"> 
+            <p><img src="<?php echo PATH_LOCALHOST; ?>assets/images/social/instagram.png" class="image"></p>
+                <p><img src="<?php echo PATH_LOCALHOST; ?>assets/images/social/facebook.png" class="image"></p>
+                <p><img src="<?php echo PATH_LOCALHOST; ?>assets/images/social/twitter.png" class="image"></p>
+            </label> 
+        </div>
+        <div class="columnfooter" style="grid-column: 2; ">
+            <h3>SERVICIOS</h3>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Buscador Avanzado</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Solicitar Acceso</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Lorem ipsum dolor</a></p>
+        </div>
+        <div class="columnfooter" style="grid-column: 3; ">
+            <h3>SOPORTE</h3>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">FAQS</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="<?php echo Flight::get_url('/contacto'); ?>" class="reffooter">Contacto</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Registro</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Mapa del sitio</a></p>
+        </div>  
+        <div class="columnfooter" style="grid-column: 4; ">
+            <h3>LEGAL</h3>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Política de Protección de datos</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Política de Privacidad</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Política de Cookies</a></p>
+            <p style="margin-bottom: 0.3rem;"><a href="#" class="reffooter">Aviso Legal</a></p>
+        </div>             
+    </div>
+    <div class="copyright">
+        <p>©2023 Quedo.es | <?php echo Flight::trad("Global_Desarrollo"); ?> <a href="https://www.yottadesarrollos.com/">Yotta Desarrollos Tecnológicos S.L.</a></p>
+    </div>
+</footer>

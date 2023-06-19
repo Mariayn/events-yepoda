@@ -1,0 +1,46 @@
+
+	<header>
+		<div class="ui menu">
+			<div class="left menu">
+				<div >
+					<a class="item" href="<?php echo PATH_LOCALHOST; ?>dashboard">
+
+
+						<img class="app_icon" src="<?php echo PATH_LOCALHOST; ?>assets/images/idea1.png"></a>
+
+					</div>
+				</div>
+				<div class="right menu">
+
+
+					<div class="item">
+						<div class="ui inline labeled icon top right pointing dropdown user-menu">
+							<i class="th icon"></i>
+							
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui inline labeled icon top right pointing dropdown user-menu">
+							<i class="bell icon"></i>
+							
+							
+						</div>
+					</div>
+					<div class="item">
+						<div class="ui inline labeled icon top right pointing dropdown user-menu">
+							<!-- <?php echo Flight::get('Usuario')->email; ?>  -->
+							<?php echo Flight::get('Usuario')->email; ?>
+
+
+							<i class="dropdown icon"></i>
+							<div class="menu "  style="height: 100px!important;"> 
+								
+								<a class="item" href="<?php echo PATH_LOCALHOST; ?>logout"><i class="sign out icon"></i>Cerrar sesión</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+		</header> 
+

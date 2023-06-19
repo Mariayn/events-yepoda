@@ -1,0 +1,55 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a href="<?php echo PATH_LOCALHOST; ?>viewEvents" class="navbar-brand">
+      <img src="./assets/images/logo-brand.png" alt="logo-brand" width="150" height="50">
+    </a>
+
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="<?php echo PATH_LOCALHOST; ?>viewEvents">Explorar eventos</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sobre nosotros</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Beneficios de usuario</a>
+        </li>
+      </ul>
+
+
+      <?php if (isset($_SESSION["Membership"]["UserID"])){ ?>
+        <div class="col-md-3">
+          <a class="btn btn-dark btn-primary text-decoration-none" href="<?php echo PATH_LOCALHOST; ?>logout">Cerrar sesión
+          </a>
+  
+          <a href="<?php echo PATH_LOCALHOST; ?>userProfile" id ="profile" >
+            <i class="fa-solid fa-user fa-lg ms-4" style="color: #000000;"></i>
+          </a>
+                 
+        </div>
+        <?php }else{?>
+  
+        <div class="col-md-3">
+          <button type="button" class="btn btn-outline-primary" data-bs-dismiss="modal" 
+          data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar sesión</button>
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" 
+          data-bs-toggle="modal" data-bs-target="#registroModal">
+          Regístrate</button>
+        </div>
+        <?php } ?>
+  
+          <div class="col-md-3">
+          <a class="nav-link dropdown-toggle link-dark" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"> <i class="fa-solid fa-globe"></i></a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">English</a></li>
+          </ul>
+          </div>
+      
+    </div>
+  </div>
+</nav>

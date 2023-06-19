@@ -1,0 +1,8 @@
+<footer class="footer">
+    <div id="footermaindiv">
+
+    </div>
+    <div class="copyright">
+        <p>©2023 Quedo.es | <?php echo Flight::trad("Global_Desarrollo"); ?> <a href="https://www.yottadesarrollos.com/">Yotta Desarrollos Tecnológicos S.L.</a></p>
+    </div>
+</footer>

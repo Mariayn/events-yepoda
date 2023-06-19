@@ -1,0 +1,18 @@
+
+
+<div class="container-fluid fixed" id="bg_log">
+           
+    <div class="container" style="120px 0">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-12" style="text-align: center;">
+                <div class="slider-title_box">
+                    <div class="row d-flex justify-content-center">
+                        <div class="col-md-10">
+                            
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

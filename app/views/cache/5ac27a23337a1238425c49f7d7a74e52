@@ -1,0 +1,10 @@
+<div style="padding-left: 9%; padding-right: 9%; padding-bottom: 36px;">
+<div class="row justify-content-center" id="flextitle">
+<h2 style="width: unset; padding-top: 17px;margin-top: 9px;"><?php echo Flight::trad("Cal_head"); ?></h2>
+    <hr id="titlehr"> </hr>
+</div>
+
+<div >
+
+</div>
+</div>

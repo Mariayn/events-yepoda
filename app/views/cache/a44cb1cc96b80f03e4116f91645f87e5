@@ -1,0 +1,165 @@
+<?php $__env->startSection('title', 'Login'); ?> 
+<?php $__env->startSection('content'); ?> 
+<style type="text/css">
+
+
+/***FOOTER ***/
+.footer a {
+  color: #a1abb5; 
+}
+.footer a:hover {
+  color: #318ade;
+}
+.footer, footer { 
+  background: #262c31; 
+  color: #a1abb5;
+  display: block;
+  font-size: 20px;
+  padding: 70px 20px 20px; 
+  position: relative;
+  text-align: center;
+  width: 100%;
+  z-index: 3;
+  border-top: solid 1px #ebebeb !important;
+}
+footer.footer-light {
+
+  background: #fff; 
+}
+.footer .footerWidgetized, footer .footerWidgetized {
+  max-width: 1080px;
+  margin: 0 auto;
+} 
+
+.footerColumn {
+  display: inline-block;
+  vertical-align: top;
+  width: 24%;
+  padding: 20px;
+  text-align: left;
+}
+.footer .footTitle, footer .footTitle {
+  color: #697887;
+  font-size: 15px;
+  font-weight: 700;
+  margin: 20px auto 0;
+  padding: 10px;
+  text-transform: uppercase;
+  width: 100%;
+}
+.footerColumn .footTitle {
+  padding: 10px 0;
+  margin: 0 0 10px;
+  text-align: center;
+  /*border-bottom: 1px solid #3d454d;*/
+}
+.footList {
+  margin: 0;
+  padding: 0;
+}
+.footItem {
+  color: #697887;
+  font-size: 14px;
+  margin: 0;
+
+  padding: 0 10px 0 0;
+}
+.footList li {
+  list-style: none;
+  text-align: center; 
+  padding: 0;
+}
+.footerColumn img {
+
+}
+.footItem a {
+  text-decoration: none;
+}
+.footItem a.footLink {
+  display: inline-block;
+  line-height: 1.2;
+  padding: 2px 10px 2px 0;
+}
+.footerText {
+  width: 80%;
+  margin: 20px auto 10px;
+  padding-top: 20px;
+  font-size: 14px;
+}
+
+@media (max-width: 1251px){
+  .footerColumn {
+   width: 100%;
+   padding: 10px;
+ }
+
+ .footItem {
+   font-size: 14px;
+ }
+}
+/***/
+
+</style>
+ 
+
+
+<div style="">
+<div id="login-page" class="ui text container">
+  <div class="column" style="text-align: center;">
+    <h2 class="ui teal image header">
+      <img src="<?php echo PATH_LOCALHOST; ?>assets/images/inicio.png" class="image" style="width: 100%!important;">
+    </h2>
+    <?php if(isset($_GET['d']) && $_GET['d']=='1'): ?>
+
+<div class="ui tiny success message ">
+  <i class="close icon"></i>
+  <div class="header"><?php echo Flight::trad('delete_usuario_correct'); ?></div>
+</div>
+
+<?php endif; ?>
+    <form class="ui large form" method="post" action="<?php echo PATH_LOCALHOST; ?>login">
+
+      <?php if(isset($error)): ?>
+      <div class="ui negative message"><?php echo $error; ?></div>
+      <?php endif; ?>
+
+
+
+      <div class="ui  segment">
+        <!--   <div class="ui stacked segment"> -->
+          <div class="field">
+            <div class="ui left icon input"> 
+              <i class="user icon"></i>
+              <input type="text" name="email" placeholder="E-mail"/>
+            </div>
+          </div>
+          <div class="field">
+            <div class="ui left icon input"><i class="lock icon"></i><input type="password" name="password" placeholder="Password"/></div>
+          </div>
+          <button type="submit" class="ui fluid large primary submit button">Entrar</button>
+        </div>
+        <div class="ui error message"></div>
+      </form>
+    </div>
+
+  </div>
+
+
+<div style="bottom:0; text-align: center">
+
+
+  
+   
+    <p class="footerText">©2022 desarrollado por <a title="Yotta Desarrollos Tecnológicos S.L." href="//www.yottadesarrollos.com/" target="_blank">Yotta Desarrollos Tecnológicos S.L.</a></p>
+
+
+</div>
+
+
+</div>
+
+<?php $__env->stopSection(); ?>
+
+
+
+<?php echo $__env->make('layouts.templates.index', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

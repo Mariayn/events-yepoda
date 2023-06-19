@@ -1,0 +1,4 @@
+<footer>
+<h1><?php echo $fecha_format; ?></h1>
+<p><?php echo Flight::functions()->formatDate('05/05/2005'); ?></p>
+</fotter>
